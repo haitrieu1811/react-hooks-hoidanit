@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { publicRoutes } from './routes';
+import DefaultLayout from './layouts/DefaultLayout';
+import { Fragment } from 'react';
 
 const App = () => {
-    let [number, setNumber] = useState(0);
-
-    let handleIncrease = () => {
-        setNumber(number++);
-    };
-
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1>React Hooks {number}</h1>
+        <Router>
+            <div className="App">
+                <Routes>
+                    {publicRoutes.map((route, index) => {
+                        const Page = route.component;
 
-                <button onClick={() => handleIncrease()}>Increase</button>
-            </header>
-        </div>
+                        let Layout = DefaultLayout;
+
+                        if (route.layout) {
+                            Layout = route.layout;
+                        } else if (route.layout === null) {
+                            Layout = Fragment;
+                        }
+
+                        return (
+                            <Route
+                                key={index}
+                                index={index}
+                                path={route.path}
+                                element={
+                                    <Layout>
+                                        <Page />
+                                    </Layout>
+                                }
+                            />
+                        );
+                    })}
+                </Routes>
+            </div>
+        </Router>
     );
 };
 
