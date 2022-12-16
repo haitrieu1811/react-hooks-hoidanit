@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import Todo from '../Todo';
 
@@ -28,10 +28,6 @@ const Home = () => {
         const newTodos = todos.filter((todo) => todo.id !== todoId);
         setTodos(newTodos);
     };
-
-    useEffect(() => {
-        console.log('>>> Use useEffect hook');
-    }, []);
 
     return (
         <>

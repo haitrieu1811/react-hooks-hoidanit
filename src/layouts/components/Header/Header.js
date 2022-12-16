@@ -16,6 +16,11 @@ const Header = () => {
                         </NavLink>
                     </li>
                     <li>
+                        <NavLink to="/covid" className={(nav) => cx({ active: nav.isActive })}>
+                            Covid 19
+                        </NavLink>
+                    </li>
+                    <li>
                         <NavLink to="/timer" className={(nav) => cx({ active: nav.isActive })}>
                             Timer
                         </NavLink>

@@ -20,7 +20,7 @@ const Todo = ({ data, handleDelete }) => {
 };
 
 Todo.propTypes = {
-    data: PropTypes.array.isRequired,
+    data: PropTypes.array,
 };
 
 export default Todo;
