@@ -9,32 +9,38 @@ import Loading from '~/components/Loading';
 const cx = classNames.bind(styles);
 
 const Covid = () => {
-    const [loading, setLoading] = useState(true);
     const [patients, setPatients] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        axios
-            .get('https://api.covid19api.com/country/vietnam', {
-                params: {
-                    from: '2021-10-15',
-                    to: '2021-10-20',
-                },
-            })
-            .then((res) => {
-                setPatients(res.data.reverse());
-            })
-            .then(() => {
-                setLoading(false);
-            });
+        const fetchApi = async () => {
+            try {
+                setIsLoading(true);
+
+                const res = await axios.get('https://api.covid19api.com/country/vietnam', {
+                    params: {
+                        from: '2021-10-15',
+                        to: '2021-10-20',
+                    },
+                });
+
+                setPatients(res.data);
+                setIsLoading(false);
+            } catch (e) {
+                alert(e.message);
+            }
+        };
+
+        fetchApi();
     }, []);
 
     return (
         <>
             <h1>Covid Page</h1>
 
-            {loading && <Loading />}
+            {isLoading && <Loading />}
 
-            {patients && patients.length > 0 && !loading && (
+            {patients && patients.length > 0 && !isLoading && (
                 <table className={cx('table')}>
                     <thead>
                         <tr>
