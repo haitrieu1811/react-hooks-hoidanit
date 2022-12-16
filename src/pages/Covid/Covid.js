@@ -21,7 +21,7 @@ const Covid = () => {
                 },
             })
             .then((res) => {
-                setPatients(res.data);
+                setPatients(res.data.reverse());
             })
             .then(() => {
                 setLoading(false);
@@ -34,7 +34,7 @@ const Covid = () => {
 
             {loading && <Loading />}
 
-            {patients && patients.length > 0 && (
+            {patients && patients.length > 0 && !loading && (
                 <table className={cx('table')}>
                     <thead>
                         <tr>
