@@ -8,6 +8,13 @@ import styles from './Covid.module.scss';
 const cx = classNames.bind(styles);
 
 const Covid = () => {
+    // const today = new Date();
+    // const priorDate = moment().subtract(30, 'days');
+
+    // const { data: patients, isLoading } = useFetch(
+    //     `https://api.covid19api.com/country/vietnam?from=${priorDate.toISOString()}&to=${today.toISOString()}`,
+    // );
+
     const { data: patients, isLoading } = useFetch(
         'https://api.covid19api.com/country/vietnam?from=2021-10-15&to=2021-10-20',
     );
