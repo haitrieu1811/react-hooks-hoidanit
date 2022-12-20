@@ -15,8 +15,11 @@ const Covid = () => {
     //     `https://api.covid19api.com/country/vietnam?from=${priorDate.toISOString()}&to=${today.toISOString()}`,
     // );
 
+    const today = moment().startOf('day').toISOString(true);
+    const priorDate = moment().startOf('day').subtract(31, 'days').toISOString(true);
+
     const { data: patients, isLoading } = useFetch(
-        'https://api.covid19api.com/country/vietnam?from=2021-10-15&to=2021-10-20',
+        `https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`,
     );
 
     return (
