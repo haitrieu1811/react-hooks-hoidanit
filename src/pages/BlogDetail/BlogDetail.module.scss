@@ -1,0 +1,18 @@
+.wrapper {
+    width: 100%;
+}
+
+.title {
+    text-transform: capitalize;
+}
+
+.content {
+    color: #7f8c8d;
+    line-height: 1.8;
+    text-align: justify;
+    text-transform: capitalize;
+
+    ~ .content {
+        margin-top: 24px;
+    }
+}

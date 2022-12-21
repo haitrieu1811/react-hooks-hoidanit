@@ -18,7 +18,7 @@ const useFetch = (url) => {
                 });
 
                 let data = res && res.data ? res.data : [];
-                data = data.reverse();
+                // data = data.reverse();
 
                 setData(data);
                 setIsError(false);

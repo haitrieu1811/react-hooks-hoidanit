@@ -1,0 +1,35 @@
+.wrapper {
+    --columns: 3;
+    --space: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(0px - var(--space));
+}
+
+.item {
+    flex-basis: calc(100% / var(--columns) - var(--space));
+    margin-left: var(--space);
+    margin-top: var(--space);
+}
+
+.link {
+    text-decoration: none;
+}
+
+.title {
+    color: #444;
+    text-transform: capitalize;
+
+    &:hover {
+        color: #0c4da2;
+    }
+}
+
+.body {
+    color: #7f8c8d;
+    text-transform: capitalize;
+}
+
+.btn-detail {
+    cursor: pointer;
+}
