@@ -31,7 +31,7 @@ const Todo = () => {
             {todos && todos.length > 0 && (
                 <>
                     <form onSubmit={(e) => handleCreate(e)}>
-                        <input type="text" value={todo} onChange={(e) => handleChangeInput(e)} /> <br />
+                        <input type="text" value={todo} onChange={(e) => handleChangeInput(e)} />
                         <button type="submit">Add</button>
                     </form>
 
