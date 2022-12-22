@@ -1,11 +1,17 @@
 import classNames from 'classnames/bind';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate(-1);
+    };
+
     return (
         <>
             <header className={cx('wrapper')}>
@@ -41,6 +47,12 @@ const Header = () => {
                         </NavLink>
                     </li>
                 </ul>
+
+                <div className={cx('back-wrapper')}>
+                    <button className={cx('back-btn')} onClick={handleBack}>
+                        Back
+                    </button>
+                </div>
             </header>
         </>
     );

@@ -1,24 +1,19 @@
 import classNames from 'classnames/bind';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import styles from './BlogDetail.module.scss';
-import useFetch from '~/hooks/useFetch';
 import Loading from '~/components/Loading';
+import useFetch from '~/hooks/useFetch';
+import styles from './BlogDetail.module.scss';
 
 const cx = classNames.bind(styles);
 
 const BlogDetail = () => {
     const { id } = useParams();
     const { data: postData, isLoading } = useFetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    const navigate = useNavigate();
 
     return (
         <>
             <h1>Blog Detail Page With ID: {id}</h1>
-
-            <button className={cx('btn')} onClick={() => navigate(-1)}>
-                Go Back
-            </button>
 
             {isLoading && <Loading />}
 

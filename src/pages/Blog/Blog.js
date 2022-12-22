@@ -8,7 +8,7 @@ import Loading from '~/components/Loading';
 const cx = classNames.bind(styles);
 
 const Blog = () => {
-    const { data, isLoading, isError } = useFetch('https://jsonplaceholder.typicode.com/posts');
+    const { data, isLoading } = useFetch('https://jsonplaceholder.typicode.com/posts');
 
     let dataBlogs;
     if (data && data.length > 0) {
@@ -22,6 +22,10 @@ const Blog = () => {
 
             {isLoading && <Loading />}
 
+            <Link to="/blog/create">
+                <button className={cx('btn')}>Create New</button>
+            </Link>
+
             {dataBlogs && dataBlogs.length > 0 && !isLoading && (
                 <div className={cx('wrapper')}>
                     {dataBlogs.map((blog) => (
@@ -31,7 +35,7 @@ const Blog = () => {
                             </Link>
                             <p className={cx('body')}>{blog.body}</p>
                             <Link to={`/blog/${blog.id}`}>
-                                <button className={cx('btn-detail')}>View Detail</button>
+                                <button className={cx('btn')}>View Detail</button>
                             </Link>
                         </div>
                     ))}
