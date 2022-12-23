@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import useFetch from '~/hooks/useFetch';
 import styles from './Blog.module.scss';
 import Loading from '~/components/Loading';
+import BasicModal from '~/components/BasicModal';
 
 const cx = classNames.bind(styles);
 
@@ -19,6 +20,8 @@ const Blog = () => {
     return (
         <>
             <h1>Blog Page</h1>
+
+            <BasicModal />
 
             {isLoading && <Loading />}
 
