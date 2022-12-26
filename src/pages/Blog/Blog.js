@@ -19,15 +19,12 @@ const Blog = () => {
 
     return (
         <>
+            {console.log('re-render')}
             <h1>Blog Page</h1>
 
             <BasicModal />
 
             {isLoading && <Loading />}
-
-            <Link to="/blog/create">
-                <button className={cx('btn')}>Create New</button>
-            </Link>
 
             {dataBlogs && dataBlogs.length > 0 && !isLoading && (
                 <div className={cx('wrapper')}>

@@ -8,6 +8,7 @@ import BlogCreate from '~/pages/BlogCreate';
 import Timer from '~/pages/Timer';
 import Todo from '~/pages/Todo';
 import Secret from '~/pages/Secret';
+import NotFound from '~/pages/NotFound';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -18,6 +19,7 @@ const publicRoutes = [
     { path: config.routes.timer, component: Timer },
     { path: config.routes.todo, component: Todo },
     { path: config.routes.secret, component: Secret },
+    { path: config.routes.notFound, component: NotFound },
 ];
 
 const privateRoutes = [];

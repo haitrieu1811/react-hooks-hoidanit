@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
+import axios from 'axios';
 
 import styles from './BlogCreate.module.scss';
 
@@ -9,7 +10,9 @@ const BlogCreate = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleCloseModal = () => {};
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!title) {
@@ -21,13 +24,21 @@ const BlogCreate = () => {
             return;
         }
 
-        console.log('>>> Check form data:', title, content);
+        const data = {
+            title: title,
+            body: content,
+            userId: 1,
+        };
+
+        const res = await axios.post('https://jsonplaceholder.typicode.com/posts', data);
+        const newBlog = res.data;
+
+        console.log('>>> Response: ', res);
+        console.log('>>> New Blog: ', newBlog);
     };
 
     return (
         <>
-            <h1>Blog Create Page</h1>
-
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className={cx('wrapper')}>
                     <div className={cx('group')}>

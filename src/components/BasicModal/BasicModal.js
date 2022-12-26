@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
+import BlogCreate from '~/pages/BlogCreate';
+
 const BasicModal = () => {
     const [show, setShow] = useState(false);
 
@@ -11,22 +13,16 @@ const BasicModal = () => {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+                Create New
             </Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Create New Blog</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
+                <Modal.Body>
+                    <BlogCreate />
+                </Modal.Body>
             </Modal>
         </>
     );

@@ -12,6 +12,10 @@ const Header = () => {
         navigate(-1);
     };
 
+    const handleNext = () => {
+        navigate(+1);
+    };
+
     return (
         <>
             <header className={cx('wrapper')}>
@@ -51,6 +55,9 @@ const Header = () => {
                 <div className={cx('back-wrapper')}>
                     <button className={cx('back-btn')} onClick={handleBack}>
                         Back
+                    </button>
+                    <button className={cx('back-btn')} onClick={handleNext}>
+                        Next
                     </button>
                 </div>
             </header>

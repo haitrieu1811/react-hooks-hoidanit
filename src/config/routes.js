@@ -7,6 +7,7 @@ const routes = {
     timer: '/timer',
     todo: '/todo',
     secret: '/secret',
+    notFound: '*',
 };
 
 export default routes;
